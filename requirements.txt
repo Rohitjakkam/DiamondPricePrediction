@@ -1,0 +1,7 @@
+pandas
+numpy
+flask
+setuptools
+typing
+
+-e .

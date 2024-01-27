@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: DiamondPricePrediction
+Version: 0.0.1
+Author: Rohitjakkam
+Author-email: rohitjakkakm@gmail.com
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: flask
+Requires-Dist: setuptools
+Requires-Dist: typing
