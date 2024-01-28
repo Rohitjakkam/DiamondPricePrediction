@@ -67,4 +67,5 @@ class ModelTrainer:
 
 
         except Exception as e:
+            logging.info("Error in initiate_model_training from model trainer")
             raise Exception(e,sys)
