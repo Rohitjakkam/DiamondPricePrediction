@@ -7,4 +7,4 @@ ipykernel
 seaborn
 scikit-learn
 pickle4
-# -e .
+-e .

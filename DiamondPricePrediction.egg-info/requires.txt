@@ -5,3 +5,5 @@ setuptools
 typing
 ipykernel
 seaborn
+scikit-learn
+pickle4
