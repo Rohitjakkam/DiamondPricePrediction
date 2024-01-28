@@ -8,3 +8,5 @@ Requires-Dist: numpy
 Requires-Dist: flask
 Requires-Dist: setuptools
 Requires-Dist: typing
+Requires-Dist: ipykernel
+Requires-Dist: seaborn

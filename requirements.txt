@@ -3,5 +3,7 @@ numpy
 flask
 setuptools
 typing
-
--e .
+ipykernel
+seaborn
+scikit-learn
+# -e .

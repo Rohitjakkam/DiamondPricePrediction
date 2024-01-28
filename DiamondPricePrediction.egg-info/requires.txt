@@ -3,3 +3,5 @@ numpy
 flask
 setuptools
 typing
+ipykernel
+seaborn
