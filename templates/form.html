@@ -40,13 +40,21 @@
         }
 
         input[type="text"],
+        input[type="range"],
         select {
-            width: 100%;
+            /* width: 100%; */
             padding: 8px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            /* border: 1px solid #ccc; */
+            /* border-radius: 4px; */
             margin-top: 5px;
+            width: 80%;
+            margin-top: 20px;
+            background: linear-gradient(to right, #8e52d3, #1a1a1a);
+            /* Change the color by modifying the gradient values */
+            border: 1px solid #ccc; /* Add a border for better visibility */
+            border-radius: 5px;
+            outline: none; /* Remove default focus outline */
         }
 
         select {
@@ -83,34 +91,40 @@
     <form action="{{url_for('predict_datapoint')}}" method="POST">
         <div class="form-group">
             <label for="carat">Carat:</label>
-            <input type="text" id="carat" name="carat" placeholder="Enter carat value (float)">
+            <input type="range" id="caratRange" name="carat" min="0.1" max="5.0" step="0.01" value="2.5">
+            <input type="text" id="caratText" name="carat" placeholder="Enter carat value (float)">
         </div>
 
         <div class="form-group">
             <label for="depth">Depth:</label>
-            <input type="text" id="depth" name="depth" placeholder="Enter depth value (float)">
+            <input type="range" id="depthRange" name="depth" min="60" max="100" step="0.01" value="80">
+            <input type="text" id="depthText" name="depth" placeholder="Enter depth value (float)">
         </div>
 
-        <div class="form-group">  
+        <div class="form-group">
             <label for="table">Table:</label>
-            <input type="text" id="table" name="table" placeholder="Enter table value (float)">
+            <input type="range" id="tableRange" name="table" min="50" max="100" step="0.01" value="75">
+            <input type="text" id="tableText" name="table" placeholder="Enter table value (float)">
         </div>
-        
+
         <div class="form-group">
             <label for="x">x:</label>
-            <input type="text" id="x" name="x" placeholder="Enter x value (float)">
+            <input type="range" id="xRange" name="x" min="1" max="12" step="0.001" value="6.5">
+            <input type="text" id="xText" name="x" placeholder="Enter x value (float)">
         </div>
-      
+
         <div class="form-group">
             <label for="y">y:</label>
-            <input type="text" id="y" name="y" placeholder="Enter y value (float)">
+            <input type="range" id="yRange" name="y" min="1" max="12" step="0.001" value="6.5">
+            <input type="text" id="yText" name="y" placeholder="Enter y value (float)">
         </div>
-      
+
         <div class="form-group">
             <label for="z">z:</label>
-            <input type="text" id="z" name="z" placeholder="Enter z value (float)">
-        </div>         
-    
+            <input type="range" id="zRange" name="z" min="1" max="12" step="0.001" value="6.5">
+            <input type="text" id="zText" name="z" placeholder="Enter z value (float)">
+        </div>
+
         <div class="form-group">
             <label for="cut">Cut:</label>
             <select id="cut" name="cut">
@@ -121,7 +135,7 @@
                 <option value="Ideal">Ideal</option>
             </select>
         </div>
-      
+
         <div class="form-group">
             <label for="color">Color:</label>
             <select id="color" name="color">
@@ -153,9 +167,37 @@
         <input type="submit" value="Submit">
 
         <div class="result">
-            {{final_result}}
+            ${{final_result}}
         </div>
     </form>
+
+    <script>
+        // JavaScript to synchronize range and text inputs
+        function synchronizeInputs(rangeId, textId) {
+            const rangeInput = document.getElementById(rangeId + 'Range');
+            const textInput = document.getElementById(textId + 'Text');
+
+            rangeInput.addEventListener('input', () => {
+                const value = rangeInput.value;
+                textInput.value = value;
+            });
+
+            textInput.addEventListener('input', () => {
+                const value = textInput.value;
+                rangeInput.value = value;
+            });
+       
+        }
+
+// Synchronize inputs for each pair
+synchronizeInputs('carat', 'carat');
+synchronizeInputs('depth', 'depth');
+synchronizeInputs('table', 'table');
+synchronizeInputs('x', 'x');
+synchronizeInputs('y', 'y');
+synchronizeInputs('z', 'z');
+</script>
+
 </body>
 
 </html>
