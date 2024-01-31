@@ -21,7 +21,7 @@
 <p>1. To create an environment:</p>
 
 ```
-conda create --name 
+conda create -p venv python==3.8 
 ```
 
 <p>2. When conda asks you to proceed type y:</p>
